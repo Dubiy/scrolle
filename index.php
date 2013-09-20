@@ -9,9 +9,9 @@
     <script type="text/javascript" src="js/jquery.event.frame.js"></script>
   </head>
   <body>
-  	<div class="page_wrapper">
-  		<div class="mad_canvas"></div>
-  	</div>
+    <div class="page_wrapper">
+      <div class="mad_canvas"></div>
+    </div>
 
     <style type="text/css">
       .page_wrapper {
@@ -21,20 +21,20 @@
         margin: 0 auto;
       }
 
-    	.mad_canvas {
-		    position: relative;
-	    }
+      .mad_canvas {
+        position: relative;
+      }
 
-	    .mad_canvas > div {
-		    border: 1px solid gray;
-		    position: fixed;
-	    }
+      .mad_canvas > div {
+        border: 1px solid gray;
+        position: fixed;
+      }
     </style>
 
     <script type='text/javascript'>
       jQuery(document).ready(function() {
 
-    	  var bricks = {};
+        var bricks = {};
         bricks.b1 = {'koef_x': 1, 'koef_y': 1, 'koef_angle': 0.5, 'angle_final': 0, 'angle': 170, 'left_final': 450, 'top_final': 100, 'left': 50, 'top': 5, 'width': 100, 'height': 50};
         bricks.b2 = {'koef_x': 0.4, 'koef_y': 0.8, 'koef_angle': 0.5, 'angle_final': 0, 'angle': 110, 'left_final': 450, 'top_final': 150, 'left': 800, 'top': 700, 'width': 50, 'height': 50};
         bricks.b3 = {'koef_x': 3, 'koef_y': 3, 'koef_angle': 0.5, 'angle_final': 0, 'angle': 140, 'left_final': 500, 'top_final': 150, 'left': 200, 'top': 900, 'width': 50, 'height': 50};
@@ -56,24 +56,24 @@
           jQuery('.mad_canvas').append(brick);
         });
 
-     	  jQuery(window).scroll(function(){
+        jQuery(window).scroll(function(){
           var scroll_Y = window.pageYOffset || document.documentElement.scrollTop;
           document.title = scroll_Y;
           jQuery.each(bricks, function(i, e) {
-          	var offset = scroll_Y;
-           	var self = this;
-           	
-    		  	if (self.top_final > self.top) {
-           	  var top_ = self.top + offset * self.koef_y;
-           	  if (top_ > self.top_final) {
+            var offset = scroll_Y;
+            var self = this;
+            
+            if (self.top_final > self.top) {
+              var top_ = self.top + offset * self.koef_y;
+              if (top_ > self.top_final) {
                 top_ = self.top_final;
-           	  }
-           	} else {
-           	  var top_ = self.top - offset * self.koef_y;
-           	  if (top_ < self.top_final) {
+              }
+            } else {
+              var top_ = self.top - offset * self.koef_y;
+              if (top_ < self.top_final) {
                 top_ = self.top_final;
-           	  }
-           	}
+              }
+            }
 
             if (self.left_final > self.left) {
               var left_ = self.left + offset * self.koef_x;
